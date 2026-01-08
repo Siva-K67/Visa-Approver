@@ -1,195 +1,180 @@
-🎯 Objective
+**Config-Driven Rule Evaluation System (Java)**
 
-Build a config-driven rule engine that evaluates whether a traveler requires a visa for a given country.
+This is a **Java-only exercise**.  
+No frameworks, no Spring, no databases.
 
-This tests:
+---
 
-Java fundamentals
+## 🎯 Objective
 
-Clean OOP
+Build a **config-driven rule engine** that evaluates whether a traveler requires a visa for a given country.
 
-Enums
+### This tests:
+- Java fundamentals
+- Clean OOP
+- Enums
+- Collections
+- Defensive coding
+- Real-world thinking
 
-Collections
+---
 
-Defensive coding
+## 🧩 Functional Requirements
 
-Real-world thinking
+### Inputs
+- Country (enum)
+- PassportCountry (enum)
+- TravelPurpose (enum)
+- StayDuration (int, days)
 
-🧩 Functional Requirements
-Inputs
+### Output
 
-Country (enum)
+A `VisaDecision` object containing:
+- `boolean visaRequired`
+- `VisaType` (enum)
+- `List<DocumentType>`
+- `int estimatedProcessingDays`
+- `List<String> warnings`
 
-PassportCountry (enum)
+---
 
-TravelPurpose (enum)
+## 📁 Data (Config-Based)
 
-StayDuration (int, days)
+Rules must be loaded from **JSON or YAML**.
 
-Output
+---
 
-A VisaDecision object containing:
+## 🛠️ Technical Constraints (Very Important)
 
-boolean visaRequired
+### Must Use
+- Java 8+
+- Enums (`Country`, `VisaType`, `DocumentType`)
+- Immutable DTOs
+- Java Collections
+- Optional (where appropriate)
 
-VisaType (enum)
+### Must NOT Use
+- Spring / Hibernate
+- Databases
+- Hardcoded logic per country
+- Reflection hacks
 
-List<DocumentType>
+---
 
-int estimatedProcessingDays
-
-List<String> warnings
-
-📁 Data (Config-Based)
-
-Rules must be loaded from JSON or YAML.
-
-🛠️ Technical Constraints (Very Important)
-Must Use
-
-Java 8+
-
-Enums (Country, VisaType, DocumentType)
-
-Immutable DTOs
-
-Java Collections
-
-Optional (where appropriate)
-
-Must NOT Use
-
-Spring / Hibernate
-
-Databases
-
-Hardcoded logic per country
-
-Reflection hacks
-
-🧠 Required Design Elements
+## 🧠 Required Design Elements
 
 Interns must implement:
+- `RuleLoader` (reads config)
+- `RuleRepository` (stores rules)
+- `VisaRuleEvaluator` (core logic)
+- `VisaDecision` (output object)
 
-RuleLoader (reads config)
+---
 
-RuleRepository (stores rules)
+## 🧪 Test Scenarios (They Must Write These)
 
-VisaRuleEvaluator (core logic)
+- Valid rule match
+- No rule found
+- Multiple rule conflict
+- Invalid input
+- Missing config fields
 
-VisaDecision (output object)
+---
 
-🧪 Test Scenarios (They Must Write These)
+# Visa Rule Evaluation System (Core Java)
 
-Valid rule match
+## Overview
 
-No rule found
-
-Multiple rule conflict
-
-Invalid input
-
-Missing config fields
-
-Visa Rule Evaluation System (Core Java)
-Overview
-
-This project is a config-driven visa rule engine built using Core Java.
+This project is a **config-driven visa rule engine** built using Core Java.  
 It decides whether a traveler needs a visa based on travel details and rules defined in a JSON file.
 
-The main idea is to separate rules from code, so visa policies can be changed without modifying Java logic.
+The main idea is to **separate rules from code**, so visa policies can be changed without modifying Java logic.
 
-Input
+---
+
+## Input
 
 The user provides:
+- Destination country
+- Passport country
+- Travel purpose
+- Stay duration (in days)
 
-Destination country
+These inputs are combined into a `TravelRequest` object.
 
-Passport country
+---
 
-Travel purpose
+## Rules
 
-Stay duration (in days)
-
-These inputs are combined into a TravelRequest object.
-
-Rules
-
-Visa rules are stored in a JSON file (visa-rules.json).
+Visa rules are stored in a JSON file (`visa-rules.json`).
 
 Each rule defines:
+- When it applies (country, purpose, stay duration)
+- What the decision should be (visa required or not)
+- Visa type
+- Warning messages
 
-When it applies (country, purpose, stay duration)
+Rules are checked **in order**, and the **first matching rule** is applied.
 
-What the decision should be (visa required or not)
+---
 
-Visa type
+## Output
 
-Warning messages
+The system returns a `VisaDecision` containing:
+- Whether a visa is required
+- Type of visa
+- Any warning messages
 
-Rules are checked in order, and the first matching rule is applied.
+---
 
-Output
+## Project Structure
 
-The system returns a VisaDecision containing:
-
-Whether a visa is required
-
-Type of visa
-
-Any warning messages
-
-Project Structure
+```text
 src/
 ├── Main.java              // User input and output
 ├── model/                 // Enums and data objects
 ├── service/               // Visa evaluation logic
 ├── repository/            // Rule loading and storage
 visa-rules.json            // Visa rules (config)
+```
 
-How It Works
+---
 
-User enters travel details via console
+## How It Works
 
-Rules are loaded from JSON
+1. User enters travel details via console
+2. Rules are loaded from JSON
+3. Rules are matched against the input
+4. The first valid rule produces the decision
+5. Result is printed to the console
 
-Rules are matched against the input
+---
 
-The first valid rule produces the decision
+## Testing
 
-Result is printed to the console
-
-Testing
-
-Test scenarios are implemented using a simple test runner class.
+Test scenarios are implemented using a **simple test runner class**.
 
 They cover:
-
-Valid rule match
-
-No rule found
-
-Multiple rule conflict
-
-Invalid input
-
-Missing rule fields
+- Valid rule match
+- No rule found
+- Multiple rule conflict
+- Invalid input
+- Missing rule fields
 
 Tests create input programmatically (no user input).
 
-Tech Used
+---
 
-Java 8+
+## Tech Used
 
-Enums
+- Java 8+
+- Enums
+- Collections
+- Optional
+- JSON-based configuration
 
-Collections
+---
 
-Optional
+## Summary
 
-JSON-based configuration
-
-Summary
-
-This project demonstrates how a rule-based system can be built in Core Java by keeping logic generic and rules external.
+This project demonstrates how a **rule-based system** can be built in Core Java by keeping logic generic and rules external.
