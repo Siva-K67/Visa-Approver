@@ -1,0 +1,70 @@
+[
+  {
+    "destinationCountry": "JAPAN",
+    "travelPurpose": "TOURISM",
+    "minStayDays": 31,
+    "visaRequired": true,
+    "visaType": "TOURIST",
+    "warnings": ["Japan tourism stay longer than 30 days"]
+  },
+
+  {
+    "destinationCountry": "JAPAN",
+    "travelPurpose": "BUSINESS",
+    "minStayDays": 1,
+    "visaRequired": true,
+    "visaType": "BUSINESS",
+    "warnings": ["Business visa required for Japan"]
+  },
+
+  {
+    "destinationCountry": "JAPAN",
+    "travelPurpose": "STUDY",
+    "minStayDays": 1,
+    "visaRequired": true,
+    "visaType": "STUDENT",
+    "warnings": ["Student visa required for studies in Japan"]
+  },
+
+  {
+    "destinationCountry": "USA",
+    "travelPurpose": "TOURISM",
+    "minStayDays": 1,
+    "visaRequired": true,
+    "visaType": "TOURIST",
+    "warnings": ["Tourist visa required for USA"]
+  },
+
+  {
+    "destinationCountry": "USA",
+    "travelPurpose": "BUSINESS",
+    "minStayDays": 1,
+    "visaRequired": true,
+    "visaType": "BUSINESS",
+    "warnings": ["Business visa required for USA"]
+  },
+
+  {
+    "destinationCountry": "USA",
+    "travelPurpose": "STUDY",
+    "minStayDays": 1,
+    "visaRequired": true,
+    "visaType": "STUDENT",
+    "warnings": ["Student visa required for USA"]
+  },
+
+  {
+    "destinationCountry": "INDIA",
+    "travelPurpose": "TOURISM",
+    "minStayDays": 1,
+    "visaRequired": false,
+    "visaType": "NONE",
+    "warnings": ["No visa required for domestic travel"]
+  },
+
+  {
+    "visaRequired": false,
+    "visaType": "NONE",
+    "warnings": ["Short stay - no visa required"]
+  }
+]
