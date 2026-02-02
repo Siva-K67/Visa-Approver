@@ -1,6 +1,6 @@
 **Config-Driven Rule Evaluation System (Java)**
 
-This is a **Java-only exercise**.  
+This is a **Java-only project**.  
 No frameworks, no Spring, no databases.
 
 ---
